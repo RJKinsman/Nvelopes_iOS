@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Nvelopes Wait View Controller-->
+        <scene sceneID="crh-oj-dst">
+            <objects>
+                <viewController storyboardIdentifier="sbNvelopesWait" id="Kg0-5H-PYz" customClass="NvelopesWaitViewController" customModule="Nvelopes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F3G-tl-Xar">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money Envelopes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Z2-8j-Gai">
+                                <rect key="frame" x="20" y="20" width="374" height="55"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LyJ-VZ-rmJ">
+                                <rect key="frame" x="198" y="439" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nvelopes App Icon - big.png" translatesAutoresizingMaskIntoConstraints="NO" id="uZo-EI-GYh">
+                                <rect key="frame" x="87" y="99" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uZo-EI-GYh" secondAttribute="height" multiplier="15:8" id="kET-fP-g7L"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Z2-8j-Gai" firstAttribute="top" secondItem="oG7-dT-sv6" secondAttribute="top" id="4g8-xP-qU5"/>
+                            <constraint firstItem="oG7-dT-sv6" firstAttribute="trailing" secondItem="8Z2-8j-Gai" secondAttribute="trailing" constant="20" id="7nt-eu-OGh"/>
+                            <constraint firstItem="8Z2-8j-Gai" firstAttribute="leading" secondItem="oG7-dT-sv6" secondAttribute="leading" constant="20" id="EWp-dD-efC"/>
+                            <constraint firstItem="uZo-EI-GYh" firstAttribute="leading" secondItem="oG7-dT-sv6" secondAttribute="leading" constant="87" id="JSU-eD-DWy"/>
+                            <constraint firstItem="uZo-EI-GYh" firstAttribute="top" secondItem="8Z2-8j-Gai" secondAttribute="bottom" constant="24" id="MYZ-sF-qBg"/>
+                            <constraint firstItem="oG7-dT-sv6" firstAttribute="trailing" secondItem="uZo-EI-GYh" secondAttribute="trailing" constant="87" id="UrP-la-JcE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oG7-dT-sv6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sjB-Xi-Awd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-441" y="127"/>
+        </scene>
+        <!--Connect To Dropbox View Controller-->
+        <scene sceneID="kcW-Ci-UaC">
+            <objects>
+                <viewController storyboardIdentifier="sbLinkToDropbox" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ikg-4C-1ia" customClass="ConnectToDropboxViewController" customModule="Nvelopes" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UkC-nu-ERe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money Envelopes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KG6-HZ-wRF">
+                                <rect key="frame" x="20" y="29" width="374" height="55"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QC8-hb-UFG">
+                                <rect key="frame" x="20" y="116" width="374" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Link to Dropbox"/>
+                                <connections>
+                                    <action selector="connectToDropboxButtonTapped:" destination="Ikg-4C-1ia" eventType="touchUpInside" id="bGX-cm-Vxg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hga-7h-4bc" firstAttribute="trailing" secondItem="QC8-hb-UFG" secondAttribute="trailing" constant="20" id="09f-lS-GlR"/>
+                            <constraint firstItem="QC8-hb-UFG" firstAttribute="leading" secondItem="hga-7h-4bc" secondAttribute="leading" constant="20" id="4Dt-ou-K2j"/>
+                            <constraint firstItem="QC8-hb-UFG" firstAttribute="top" secondItem="KG6-HZ-wRF" secondAttribute="bottom" constant="32" id="AmF-b8-ol7"/>
+                            <constraint firstItem="KG6-HZ-wRF" firstAttribute="top" secondItem="hga-7h-4bc" secondAttribute="top" constant="9" id="oXx-Jf-jlp"/>
+                            <constraint firstItem="KG6-HZ-wRF" firstAttribute="leading" secondItem="hga-7h-4bc" secondAttribute="leading" constant="20" id="t7o-0W-4OE"/>
+                            <constraint firstItem="hga-7h-4bc" firstAttribute="trailing" secondItem="KG6-HZ-wRF" secondAttribute="trailing" constant="20" id="ziG-zh-5kw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hga-7h-4bc"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rRG-7D-5m5"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="displayEnvelopes" id="fj8-sk-yju"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Prh-oZ-hN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250.72463768115944" y="137.94642857142856"/>
+        </scene>
+        <!--Nvelopes View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="sbNvelopes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="NvelopesViewController" customModule="Nvelopes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money Envelopes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qne-27-MpE">
+                                <rect key="frame" x="48" y="29" width="318" height="55"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-Sf-Jcj">
+                                <rect key="frame" x="48" y="92" width="318" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="318" id="Wgl-c0-guH"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="66" id="is2-fy-Exo" userLabel="height ≤ 66"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Envelope Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aP-Ih-JJq">
+                                <rect key="frame" x="20" y="113" width="279.33333333333331" height="37"/>
+                                <color key="backgroundColor" red="0.55634570662145932" green="0.72617340239171457" blue="0.49367502569571164" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="226" id="Vka-68-UEn"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="37" id="q0s-0B-yXZ"/>
+                                    <constraint firstAttribute="height" constant="37" id="zC4-be-V7E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Envelope Remaining" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDc-Xe-mgm">
+                                <rect key="frame" x="307.33333333333331" y="100" width="86.666666666666686" height="50"/>
+                                <color key="backgroundColor" red="0.55634570660000005" green="0.72617340239999995" blue="0.49367502569999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="n5J-9q-CNl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BaC-Ru-Yk2">
+                                <rect key="frame" x="20" y="182" width="374" height="565"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EnvelopeCell" rowHeight="90" id="WkM-5e-aw3" customClass="EnvelopeTableViewCell" customModule="Nvelopes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WkM-5e-aw3" id="UMp-Fe-sdy">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="89.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelEnvelopeName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IP-Sg-YEw">
+                                                    <rect key="frame" x="0.0" y="3" width="354" height="66.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelEnvelopeAmount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oix-oi-ftP">
+                                                    <rect key="frame" x="6" y="20" width="348" height="69.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Oix-oi-ftP" firstAttribute="leading" secondItem="UMp-Fe-sdy" secondAttribute="leading" constant="6" id="2H1-wE-NN1"/>
+                                                <constraint firstItem="Oix-oi-ftP" firstAttribute="top" secondItem="UMp-Fe-sdy" secondAttribute="top" constant="20" id="ErE-VT-FwV"/>
+                                                <constraint firstAttribute="bottom" secondItem="2IP-Sg-YEw" secondAttribute="bottom" constant="20" symbolic="YES" id="OEN-IP-7Li"/>
+                                                <constraint firstAttribute="trailing" secondItem="Oix-oi-ftP" secondAttribute="trailing" constant="20" symbolic="YES" id="PUx-th-Hoy"/>
+                                                <constraint firstAttribute="bottom" secondItem="Oix-oi-ftP" secondAttribute="bottom" id="Smd-0z-mRE"/>
+                                                <constraint firstItem="2IP-Sg-YEw" firstAttribute="leading" secondItem="UMp-Fe-sdy" secondAttribute="leading" id="aUl-98-sjE"/>
+                                                <constraint firstAttribute="trailing" secondItem="2IP-Sg-YEw" secondAttribute="trailing" constant="20" symbolic="YES" id="eYt-1A-bbq"/>
+                                                <constraint firstItem="2IP-Sg-YEw" firstAttribute="top" secondItem="UMp-Fe-sdy" secondAttribute="top" constant="3" id="f3N-nY-oRB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelEnvelopeAmount" destination="Oix-oi-ftP" id="xRI-aJ-rWM"/>
+                                            <outlet property="labelEnvelopeName" destination="2IP-Sg-YEw" id="hft-49-Jyh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="YLi-Kw-2ic"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Tf0-7V-K3x"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LabelMessage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sh8-F1-X3l">
+                                <rect key="frame" x="20" y="765" width="374" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="fmN-iJ-IZq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BaC-Ru-Yk2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="18k-6I-wve"/>
+                            <constraint firstItem="NDc-Xe-mgm" firstAttribute="top" secondItem="RuB-Sf-Jcj" secondAttribute="bottom" constant="8" id="1Xa-Wn-VCy"/>
+                            <constraint firstItem="RuB-Sf-Jcj" firstAttribute="top" secondItem="qne-27-MpE" secondAttribute="bottom" constant="8" id="7JO-5c-uoR"/>
+                            <constraint firstItem="7aP-Ih-JJq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Dcn-5H-f43"/>
+                            <constraint firstItem="Sh8-F1-X3l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="EDc-vQ-OGR"/>
+                            <constraint firstItem="7aP-Ih-JJq" firstAttribute="top" secondItem="RuB-Sf-Jcj" secondAttribute="bottom" constant="21" id="ILc-4u-9cd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NDc-Xe-mgm" secondAttribute="trailing" constant="20" id="IeX-Ex-UlR"/>
+                            <constraint firstItem="Sh8-F1-X3l" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Ki7-4c-N5a"/>
+                            <constraint firstItem="BaC-Ru-Yk2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="KwF-eq-Bu6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sh8-F1-X3l" secondAttribute="trailing" constant="20" id="QyJ-XQ-SFs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BaC-Ru-Yk2" secondAttribute="trailing" constant="20" id="ROW-1F-ldq"/>
+                            <constraint firstItem="qne-27-MpE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="fwZ-9n-NYD"/>
+                            <constraint firstItem="7aP-Ih-JJq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="htm-Z5-dBx"/>
+                            <constraint firstItem="7aP-Ih-JJq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="i0g-Vu-AgH"/>
+                            <constraint firstItem="7aP-Ih-JJq" firstAttribute="top" secondItem="RuB-Sf-Jcj" secondAttribute="bottom" constant="21" id="juK-xa-4P8"/>
+                            <constraint firstItem="NDc-Xe-mgm" firstAttribute="leading" secondItem="7aP-Ih-JJq" secondAttribute="trailing" constant="8" id="k1N-r7-Wa9"/>
+                            <constraint firstItem="7aP-Ih-JJq" firstAttribute="top" secondItem="RuB-Sf-Jcj" secondAttribute="bottom" constant="21" id="lOG-S0-4Wc"/>
+                            <constraint firstItem="BaC-Ru-Yk2" firstAttribute="top" secondItem="7aP-Ih-JJq" secondAttribute="bottom" constant="8" id="qog-hx-H3Z"/>
+                            <constraint firstItem="RuB-Sf-Jcj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qrf-aY-VUZ"/>
+                            <constraint firstItem="Sh8-F1-X3l" firstAttribute="top" secondItem="BaC-Ru-Yk2" secondAttribute="bottom" constant="8" id="vux-cx-GvC"/>
+                            <constraint firstItem="NDc-Xe-mgm" firstAttribute="top" secondItem="RuB-Sf-Jcj" secondAttribute="bottom" constant="8" id="vwG-UJ-qu2"/>
+                            <constraint firstItem="qne-27-MpE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wj6-Yp-1ah"/>
+                            <constraint firstItem="7aP-Ih-JJq" firstAttribute="top" secondItem="RuB-Sf-Jcj" secondAttribute="bottom" constant="21" id="yVy-XN-wul"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="labelDate" destination="RuB-Sf-Jcj" id="LKU-su-2oE"/>
+                        <outlet property="labelMessage" destination="Sh8-F1-X3l" id="smm-Kp-RUX"/>
+                        <outlet property="tableView" destination="BaC-Ru-Yk2" id="6KH-JG-que"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Nvelopes App Icon - big.png" width="286.125" height="219"/>
+    </resources>
+</document>
