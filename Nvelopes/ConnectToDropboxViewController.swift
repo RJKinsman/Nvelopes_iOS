@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import SwiftyDropbox
 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    DropboxClientsManager.setupWithAppKey("fawy4f14021rypr")
+//    DropboxClientsManager.setupWithAppKey("fawy4f14021rypr")
     print("ConnectToDropboxViewController did setupWithAppKey")
     return true
 }
@@ -19,7 +18,7 @@ class ConnectToDropboxViewController: UIViewController {
 
     @IBAction func connectToDropboxButtonTapped(_ sender: Any) {
         // Begin the Dropbopx authorization flow
-        DropboxClientsManager.authorizeFromController(UIApplication.shared, controller: self, openURL: { (url: URL) -> Void in UIApplication.shared.open(url, options: [:], completionHandler: nil) })
+//        DropboxClientsManager.authorizeFromController(UIApplication.shared, controller: self, openURL: { (url: URL) -> Void in UIApplication.shared.open(url, options: [:], completionHandler: nil) })
 
     }
     override func viewDidLoad() {

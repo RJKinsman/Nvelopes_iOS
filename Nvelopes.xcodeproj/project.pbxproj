@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,8 +14,6 @@
 		E67B90AB21D93C1C00DB20D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67B90A921D93C1C00DB20D2 /* Main.storyboard */; };
 		E67B90AD21D93C1D00DB20D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E67B90AC21D93C1D00DB20D2 /* Assets.xcassets */; };
 		E67B90B021D93C1D00DB20D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67B90AE21D93C1D00DB20D2 /* LaunchScreen.storyboard */; };
-		E695BA3E262CF005005B8170 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E695BA3D262CF005005B8170 /* Alamofire.xcframework */; };
-		E695BA41262CF012005B8170 /* SwiftyDropbox.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E695BA40262CF012005B8170 /* SwiftyDropbox.xcframework */; };
 		E6B3327B21E1489D00D06FC5 /* ConnectToDropboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B3327A21E1489D00D06FC5 /* ConnectToDropboxViewController.swift */; };
 		E6B7A8F621F34A600074D1D0 /* Nvelopes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7A8F521F34A600074D1D0 /* Nvelopes.swift */; };
 		E6B7A8F821F34B020074D1D0 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B7A8F721F34B020074D1D0 /* ModelController.swift */; };
@@ -41,8 +39,6 @@
 		E67B90AC21D93C1D00DB20D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E67B90AF21D93C1D00DB20D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E67B90B121D93C1D00DB20D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E695BA3D262CF005005B8170 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
-		E695BA40262CF012005B8170 /* SwiftyDropbox.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftyDropbox.xcframework; path = Carthage/Build/SwiftyDropbox.xcframework; sourceTree = "<group>"; };
 		E6B3327A21E1489D00D06FC5 /* ConnectToDropboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToDropboxViewController.swift; sourceTree = "<group>"; };
 		E6B7A8F521F34A600074D1D0 /* Nvelopes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nvelopes.swift; sourceTree = "<group>"; };
 		E6B7A8F721F34B020074D1D0 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
@@ -61,8 +57,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E695BA41262CF012005B8170 /* SwiftyDropbox.xcframework in Frameworks */,
-				E695BA3E262CF005005B8170 /* Alamofire.xcframework in Frameworks */,
 				19A6270FC28389DDF886A596 /* Pods_Nvelopes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,7 +70,6 @@
 				6669C816595654C1AA9DDF62 /* Pods-Nvelopes.debug.xcconfig */,
 				0103191CC4DCF823EB74E2A8 /* Pods-Nvelopes.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -126,8 +119,6 @@
 		E6BC94D021DC684E0008F9BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E695BA40262CF012005B8170 /* SwiftyDropbox.xcframework */,
-				E695BA3D262CF005005B8170 /* Alamofire.xcframework */,
 				21E9F12F056C64C662E2C612 /* Pods_Nvelopes.framework */,
 			);
 			name = Frameworks;
@@ -144,7 +135,6 @@
 				E67B909E21D93C1C00DB20D2 /* Sources */,
 				E67B909F21D93C1C00DB20D2 /* Frameworks */,
 				E67B90A021D93C1C00DB20D2 /* Resources */,
-				E6BC94D521DC68760008F9BE /* ShellScript */,
 				6C98D2B2EE1921FC69A63DD1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -249,25 +239,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		E6BC94D521DC68760008F9BE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyDropbox.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -436,10 +407,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q32FF859V3;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Nvelopes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -461,10 +428,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q32FF859V3;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Nvelopes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

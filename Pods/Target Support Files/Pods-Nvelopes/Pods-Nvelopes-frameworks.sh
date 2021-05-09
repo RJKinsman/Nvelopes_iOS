@@ -175,14 +175,10 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ADAL/ADAL.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Base32/Base32.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/OneDriveSDK/OneDriveSDK.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/ADAL/ADAL.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Base32/Base32.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/OneDriveSDK/OneDriveSDK.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

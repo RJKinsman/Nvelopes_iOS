@@ -21,6 +21,11 @@ var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
 var webViewParamaters : MSALWebviewParameters?
 
+var loggingText: UITextView!
+var signOutButton: UIButton!
+var callGraphButton: UIButton!
+var usernameLabel: UILabel!
+
 var currentAccount: MSALAccount?
 
 // Variables from MSALiOS - End
@@ -162,7 +167,19 @@ class NvelopesViewController: UIViewController, UITableViewDelegate, UITableView
                                                object: nil)
         
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+
+        super.viewWillAppear(animated)
+        self.loadCurrentAccount()
+    }
     
+    @objc func appCameToForeGround(notification: Notification) {
+        self.loadCurrentAccount()
+    }
+}
+extension NvelopesViewController {
+
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         
         print("NvelopesViewController.handleRefresh")
@@ -194,7 +211,7 @@ class NvelopesViewController: UIViewController, UITableViewDelegate, UITableView
             if !self.appDelegate.gotDropboxAccess {
                 print("NvelopesViewController: did not get Drobpbox access.  Refreshing Data" )
 //                self.processNvelopes()
-                processNvelopes()
+                self.processNvelopes()
                 self.tableView.reloadData()
                 refreshControl.endRefreshing()
                 return
@@ -226,7 +243,7 @@ class NvelopesViewController: UIViewController, UITableViewDelegate, UITableView
             self.dispatchGroup.notify(queue: .main) {
             
 //                self.processNvelopes()
-                processNvelopes()
+                self.processNvelopes()
                 print("NvelopesViewController.handleRefresh: after processNvelopes()")
                 print("NvelopesViewController.handleRefresh: nvelopeNames.count: " , nvelopeNames.count as Any)
 
@@ -243,7 +260,7 @@ class NvelopesViewController: UIViewController, UITableViewDelegate, UITableView
         return
             
         }
-    }
+
     
     func checkForDropboxAccess() {
         
@@ -472,6 +489,7 @@ class NvelopesViewController: UIViewController, UITableViewDelegate, UITableView
         
         return
     }
+}
 
 // MARK: Initialization
 
@@ -505,12 +523,12 @@ extension NvelopesViewController {
         let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID,
                                                                   redirectUri: kRedirectUri,
                                                                   authority: authority)
-        self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
+        applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
         self.initWebViewParams()
     }
     
     func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
+        webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
     }
 }
 
@@ -521,7 +539,7 @@ extension NvelopesViewController {
     @objc func getDeviceMode(_ sender: UIButton) {
         
         if #available(iOS 13.0, *) {
-            self.applicationContext?.getDeviceInformation(with: nil, completionBlock: { (deviceInformation, error) in
+            applicationContext?.getDeviceInformation(with: nil, completionBlock: { (deviceInformation, error) in
                 
                 guard let deviceInfo = deviceInformation else {
                     self.updateLogging(text: "Device info not returned. Error: \(String(describing: error))")
@@ -565,8 +583,8 @@ extension NvelopesViewController {
     
     func acquireTokenInteractively() {
         
-        guard let applicationContext = self.applicationContext else { return }
-        guard let webViewParameters = self.webViewParamaters else { return }
+        guard let applicationContext = applicationContext else { return }
+        guard let webViewParameters = webViewParamaters else { return }
 
         let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: webViewParameters)
         parameters.promptType = .selectAccount
@@ -585,8 +603,8 @@ extension NvelopesViewController {
                 return
             }
             
-            self.accessToken = result.accessToken
-            self.updateLogging(text: "Access token is \(self.accessToken)")
+            accessToken = result.accessToken
+            self.updateLogging(text: "Access token is \(accessToken)")
             self.updateCurrentAccount(account: result.account)
             self.getContentWithToken()
         }
@@ -594,7 +612,7 @@ extension NvelopesViewController {
     
     func acquireTokenSilently(_ account : MSALAccount!) {
         
-        guard let applicationContext = self.applicationContext else { return }
+        guard let applicationContext = applicationContext else { return }
         
         /**
          
@@ -642,8 +660,8 @@ extension NvelopesViewController {
                 return
             }
             
-            self.accessToken = result.accessToken
-            self.updateLogging(text: "Refreshed Access token is \(self.accessToken)")
+            accessToken = result.accessToken
+            self.updateLogging(text: "Refreshed Access token is \(accessToken)")
             self.updateSignOutButton(enabled: true)
             self.getContentWithToken()
         }
@@ -666,7 +684,7 @@ extension NvelopesViewController {
         var request = URLRequest(url: url!)
         
         // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
-        request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             
@@ -697,7 +715,7 @@ extension NvelopesViewController {
 
     func loadCurrentAccount(completion: AccountCompletion? = nil) {
         
-        guard let applicationContext = self.applicationContext else { return }
+        guard let applicationContext = applicationContext else { return }
         
         let msalParameters = MSALParameters()
         msalParameters.completionBlockQueue = DispatchQueue.main
@@ -719,14 +737,14 @@ extension NvelopesViewController {
                 self.updateCurrentAccount(account: currentAccount)
                 
                 if let completion = completion {
-                    completion(self.currentAccount)
+                    completion(currentAccount)
                 }
                 
                 return
             }
             
             self.updateLogging(text: "Account signed out. Updating UX")
-            self.accessToken = ""
+            accessToken = ""
             self.updateCurrentAccount(account: nil)
             
             if let completion = completion {
@@ -741,9 +759,9 @@ extension NvelopesViewController {
      */
     @objc func signOut(_ sender: UIButton) {
         
-        guard let applicationContext = self.applicationContext else { return }
+        guard let applicationContext = applicationContext else { return }
         
-        guard let account = self.currentAccount else { return }
+        guard let account = currentAccount else { return }
         
         do {
             
@@ -753,7 +771,7 @@ extension NvelopesViewController {
              - account:    The account to remove from the cache
              */
             
-            let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParamaters!)
+            let signoutParameters = MSALSignoutParameters(webviewParameters: webViewParamaters!)
             signoutParameters.signoutFromBrowser = false
             
             applicationContext.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
@@ -764,7 +782,7 @@ extension NvelopesViewController {
                 }
                 
                 self.updateLogging(text: "Sign out completed successfully")
-                self.accessToken = ""
+                accessToken = ""
                 self.updateCurrentAccount(account: nil)
             })
             
@@ -845,36 +863,36 @@ extension NvelopesViewController {
     func updateLogging(text : String) {
         
         if Thread.isMainThread {
-            self.loggingText.text = text
+            loggingText.text = text
         } else {
             DispatchQueue.main.async {
-                self.loggingText.text = text
+                loggingText.text = text
             }
         }
     }
     
     func updateSignOutButton(enabled : Bool) {
         if Thread.isMainThread {
-            self.signOutButton.isEnabled = enabled
+            signOutButton.isEnabled = enabled
         } else {
             DispatchQueue.main.async {
-                self.signOutButton.isEnabled = enabled
+                signOutButton.isEnabled = enabled
             }
         }
     }
     
     func updateAccountLabel() {
         
-        guard let currentAccount = self.currentAccount else {
-            self.usernameLabel.text = "Signed out"
+        guard let currentAccount = currentAccount else {
+            usernameLabel.text = "Signed out"
             return
         }
         
-        self.usernameLabel.text = currentAccount.username
+        usernameLabel.text = currentAccount.username
     }
     
     func updateCurrentAccount(account: MSALAccount?) {
-        self.currentAccount = account
+        currentAccount = account
         self.updateAccountLabel()
         self.updateSignOutButton(enabled: account != nil)
     }

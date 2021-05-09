@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import OneDriveSDK
+//import OneDriveSDK
 import MSAL
 
 @UIApplicationMain
